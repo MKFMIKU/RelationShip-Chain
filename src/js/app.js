@@ -1,3 +1,11 @@
+const status = [
+  "In Love",
+  "Break Up",
+  "Married",
+  "Divorced",
+  "Friends",
+]
+
 App = {
   web3Provider: null,
   contracts: {},
@@ -59,7 +67,7 @@ App = {
           row.insertCell(1).innerHTML = web3.toAscii(res['args']['boy']);
           row.insertCell(2).innerHTML = web3.toAscii(res['args']['girl']);
           row.insertCell(3).innerHTML = web3.toAscii(res['args']['date']);
-          row.insertCell(4).innerHTML = res['args']['status'];
+          row.insertCell(4).innerHTML = status[res['args']['status']];
           row.insertCell(5).innerHTML = web3.toAscii(res['args']['image']);
         })
       })
