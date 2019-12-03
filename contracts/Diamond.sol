@@ -6,8 +6,8 @@ contract Diamond {
     bytes32 public girl;
     bytes32 public date;
     uint public status;
-    bytes32 public image;
-    bytes32 public description;
+    bytes public image;
+    bytes public description;
 
     constructor() public {
         owner = msg.sender;
@@ -17,7 +17,7 @@ contract Diamond {
         if (msg.sender == owner) _;
     }
 
-    function createDiamond(bytes32 boyEntry, bytes32 girlEntry, bytes32 dateEntry, uint statusEntry, bytes32 imageEntry, bytes32 descriptionEntry) public{
+    function createDiamond(bytes32 boyEntry, bytes32 girlEntry, bytes32 dateEntry, uint statusEntry, bytes memory imageEntry, bytes memory descriptionEntry) public{
         boy = boyEntry;
         girl = girlEntry;
         date = dateEntry;
@@ -29,7 +29,7 @@ contract Diamond {
      }
 
 
-    event MajorEvent(bytes32 indexed boy, bytes32 indexed girl, bytes32 date, uint status, bytes32 image);
+    event MajorEvent(bytes32 indexed boy, bytes32 indexed girl, bytes32 date, uint status, bytes image);
 
     function () external{
         revert("Error in provided data");
